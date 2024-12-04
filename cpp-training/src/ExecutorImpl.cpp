@@ -19,20 +19,28 @@ void ExecutorImpl::Execute(const std::string& commands) noexcept
 {
        for (const auto cmd : commands) {
         if (cmd == 'M') {
-            if (pose.heading == 'E') {
+            if (pose.heading == E) {
                 ++pose.x;
             }
-            else if (pose.heading == 'W') {
+            else if (pose.heading == W) {
                 --pose.x;
             }
-            else if (pose.heading == 'N') {
+            else if (pose.heading == N) {
                 ++pose.y;
             }
-            else if (pose.heading == 'S') {
+            else if (pose.heading == S) {
                 --pose.y;   
             }
-} 
-}
+        }
+        else if (cmd == 'L') {
+            pose.heading = (Position)((pose.heading -1 + 4) % 4);
+        }
+        else if (cmd == 'R') {
+            pose.heading = (Position)((pose.heading +1 ) % 4);
+        }
+       }
+
+
 
     
 }

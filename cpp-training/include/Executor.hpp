@@ -4,17 +4,19 @@
 
 namespace adas{
 
+enum Position{N, E, S, W};
+
 struct Pose
 {
     int x;
     int y;
-    char heading;
+    Position heading;
 };
 
 class Executor {
   
 public:
-    static Executor* NewExecutor(const Pose& pose = {0, 0,'N'}) noexcept;
+    static Executor* NewExecutor(const Pose& pose = {0, 0, N}) noexcept;
 
 public:
     Executor(void) = default;				
